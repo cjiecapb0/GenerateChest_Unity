@@ -41,6 +41,10 @@ public static class ChestGenerator_Manager
     {
         VIEW.generateChest_VIEW.CalculatingCostCheast();
     }
+    public static void ShowChest(GameObject prices, GameObject showWindow)
+    {
+        VIEW.generateChest_VIEW.ShowChest(prices, showWindow);
+    }
 }
 
 //public static void GenerateResources(StackPanel checkBox, ComboBox comboBox, TextBlock text, TextBlock textJ, List<Resource> rootResources)

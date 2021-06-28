@@ -17,6 +17,7 @@ public class GenerateChest_VIEW
     private List<GameObject> fixedResources;
     private List<GameObject> selectedResourcesPrefabs;
     private List<GameObject> prices;
+    private List<GameObject> cells;
 
     private readonly RootResources rootResources;
 
@@ -43,6 +44,10 @@ public class GenerateChest_VIEW
 
         this.prices = prefabsList.ContainsKey("prices")
             ? prefabsList["prices"]
+            : null;
+
+        this.cells = prefabsList.ContainsKey("cells")
+            ? prefabsList["cells"]
             : null;
 
         TextAsset rootResourcesPath = Resources.Load<TextAsset>("data");
@@ -88,7 +93,32 @@ public class GenerateChest_VIEW
             CalculatingCostCheast();
         }
         PastedChest();
+    }
+    public void ShowChest(GameObject prices, GameObject showWindow)
+    {
+        foreach (GameObject cell in cells)
+        {
+            cell.SetActive(false);
         }
+        for (int i = 0; i < selestedResources.Count; i++)
+        {
+            GameObject countResource = selectedResourcesPrefabs[i].transform.Find("countResource").gameObject;
+            string resourceCount = countResource.GetComponent<TMP_InputField>().text;
+
+            cells[i].transform.Find("text").gameObject.GetComponent<TMP_InputField>().text = resourceCount;
+            cells[i].transform.Find("name").gameObject.GetComponent<TextMeshProUGUI>().text = selestedResources[i].Name;
+
+            string path = $"{selestedResources[i].Id}";
+            Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
+            if (sprite == null)
+                cells[i].GetComponent<Image>().sprite = Resources.Load("Images/Bonus_Yell", typeof(Sprite)) as Sprite;
+            else
+                cells[i].GetComponent<Image>().sprite = sprite;
+            cells[i].SetActive(true);
+
+            prices.transform.SetParent(showWindow.transform);
+        }
+    }
     public void СopyСlipboardChest()
     {
         clipboardChest = "(";
@@ -106,9 +136,9 @@ public class GenerateChest_VIEW
     }
     public void PastedChest()
     {
-        
+
         string pasteText = GUIUtility.systemCopyBuffer;
-        pasteText = pasteText.Replace("(","{").Replace(")","}").Replace("=",":");
+        pasteText = pasteText.Replace("(", "{").Replace(")", "}").Replace("=", ":");
     }
     public void RenderToolTip(GameObject selectedResource, GameObject countResource, GameObject name, GameObject toolTip)
     {
@@ -148,6 +178,7 @@ public class GenerateChest_VIEW
             }
         }
     }
+
     public void CalculatingCostCheast()
     {
         int priceMoneyInt = 0;

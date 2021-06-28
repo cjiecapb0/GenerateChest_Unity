@@ -9,6 +9,7 @@ public class ChestGenerator_Root : MonoBehaviour
     [SerializeField] private List<GameObject> fixedResources;
     [SerializeField] private List<GameObject> selectedResourcesPrefabs;
     [SerializeField] private List<GameObject> prices;
+    [SerializeField] private List<GameObject> cells;
 
     public void Awake()
     {
@@ -19,7 +20,8 @@ public class ChestGenerator_Root : MonoBehaviour
                 { "togglesSelectedChest", togglesSelectedChest },
                 { "fixedResources", fixedResources },
                 { "selectedResourcesPrefabs", selectedResourcesPrefabs },
-                { "prices", prices }
+                { "prices", prices },
+                { "cells", cells }
             };
 
         prefabReporitory.Add("generateChest", prefabsList);

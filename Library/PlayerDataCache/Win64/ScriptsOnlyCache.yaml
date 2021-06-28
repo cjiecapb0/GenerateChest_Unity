@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - GenerateButton_BEHAVIOR
     - SelectChest_BEHAVIOR
     - SelectedResource_BEHAVIOR
+    - ShowButton_BEHAVIOR
     - UpdateCanvas_BEHAVIOR
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -34,9 +35,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelinePreferences
-    - TimelineProjectSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -79,67 +77,69 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1482}
-    - Class: 114
       Script: {instanceID: 1484}
     - Class: 114
-      Script: {instanceID: 1734}
+      Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 1842}
+      Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 1906}
+      Script: {instanceID: 1682}
     - Class: 114
-      Script: {instanceID: 1968}
+      Script: {instanceID: 1746}
     - Class: 114
-      Script: {instanceID: 1992}
+      Script: {instanceID: 1808}
     - Class: 114
-      Script: {instanceID: 2014}
+      Script: {instanceID: 1832}
     - Class: 114
-      Script: {instanceID: 2392}
+      Script: {instanceID: 1854}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2232}
     - Class: 114
-      Script: {instanceID: 2818}
+      Script: {instanceID: 2420}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2658}
     - Class: 114
-      Script: {instanceID: 2996}
+      Script: {instanceID: 2822}
     - Class: 114
-      Script: {instanceID: 3028}
+      Script: {instanceID: 2836}
     - Class: 114
-      Script: {instanceID: 3198}
+      Script: {instanceID: 2868}
     - Class: 114
-      Script: {instanceID: 3442}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3452}
+      Script: {instanceID: 3282}
     - Class: 114
-      Script: {instanceID: 3536}
+      Script: {instanceID: 3292}
     - Class: 114
-      Script: {instanceID: 3564}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3698}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 3700}
+      Script: {instanceID: 3538}
     - Class: 114
-      Script: {instanceID: 3788}
+      Script: {instanceID: 3540}
     - Class: 114
-      Script: {instanceID: 3864}
+      Script: {instanceID: 3628}
     - Class: 114
-      Script: {instanceID: 3950}
+      Script: {instanceID: 3704}
     - Class: 114
-      Script: {instanceID: 4092}
+      Script: {instanceID: 3790}
     - Class: 114
-      Script: {instanceID: 4582}
+      Script: {instanceID: 3932}
     - Class: 114
-      Script: {instanceID: 4756}
+      Script: {instanceID: 4422}
     - Class: 114
-      Script: {instanceID: 4778}
+      Script: {instanceID: 4596}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4618}
     - Class: 114
-      Script: {instanceID: 4912}
+      Script: {instanceID: 4726}
     - Class: 114
-      Script: {instanceID: 5292}
+      Script: {instanceID: 4752}
+    - Class: 114
+      Script: {instanceID: 5132}
+    - Class: 114
+      Script: {instanceID: 31840}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -261,7 +261,7 @@ ScriptsOnlyBuild:
     className: SelectedResource_BEHAVIOR
   - hash:
       serializedVersion: 2
-      Hash: 06d691b47cd3d46d58922261619c918a
+      Hash: 27c3142f7af54606dde782976c3c66a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChestGenerator_Root
@@ -925,6 +925,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextEventCheck
+  - hash:
+      serializedVersion: 2
+      Hash: f7209b1089536c89b5ff857c072fe59c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShowButton_BEHAVIOR
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
