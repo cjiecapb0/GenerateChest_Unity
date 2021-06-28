@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
 using System.IO;
+using System.Text;
 
 public class GenerateChest_VIEW
 {
@@ -20,7 +21,7 @@ public class GenerateChest_VIEW
     private readonly RootResources rootResources;
 
     private string clipboardChest;
-    private const string rootResourcesPath = "Assets/Resourses/data.txt";
+    // as TextAsset //"Assets/Resources/data.txt";
 
     public GenerateChest_VIEW(Dictionary<string, List<GameObject>> prefabsList)
     {
@@ -44,7 +45,8 @@ public class GenerateChest_VIEW
             ? prefabsList["prices"]
             : null;
 
-        rootResources = JsonConvert.DeserializeObject<RootResources>(File.ReadAllText(rootResourcesPath));
+        TextAsset rootResourcesPath = Resources.Load<TextAsset>("data");
+        rootResources = JsonConvert.DeserializeObject<RootResources>(rootResourcesPath.text);
         selestedResources = new List<Resource>();
         clipboardChest = "";
     }
@@ -85,9 +87,9 @@ public class GenerateChest_VIEW
                 CheckingResources();
             CalculatingCostCheast();
         }
-
-    }
-    public void —opy—lipboardChest()
+        PastedChest();
+        }
+    public void –°opy–°lipboardChest()
     {
         clipboardChest = "(";
         for (int i = 0; i < this.selestedResources.Count; i++)
@@ -101,6 +103,12 @@ public class GenerateChest_VIEW
         clipboardChest += ")";
 
         GUIUtility.systemCopyBuffer = clipboardChest;
+    }
+    public void PastedChest()
+    {
+        
+        string pasteText = GUIUtility.systemCopyBuffer;
+        pasteText = pasteText.Replace("(","{").Replace(")","}").Replace("=",":");
     }
     public void RenderToolTip(GameObject selectedResource, GameObject countResource, GameObject name, GameObject toolTip)
     {
@@ -237,7 +245,6 @@ public class GenerateChest_VIEW
             GameObject infoResource = selectedResourcesPrefabs[i].transform.Find("infoResource").gameObject;
             GameObject nameResource = infoResource.transform.Find("nameResource").gameObject;
             GameObject iconResource = infoResource.transform.Find("iconResource").gameObject;
-
             Color infoResourceColor = new Color();
             nameResource.GetComponent<TextMeshProUGUI>().text = selestedResources[i].Name;
 
@@ -246,6 +253,15 @@ public class GenerateChest_VIEW
             if (selestedResources[i].Level == 3) infoResourceColor = Color.green;
             if (selestedResources[i].Level == 4) infoResourceColor = Color.red;
             infoResource.GetComponent<Image>().color = infoResourceColor;
+
+
+
+            string path = $"{selestedResources[i].Id}";
+            Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
+            if (sprite == null)
+                iconResource.GetComponent<Image>().sprite = Resources.Load("Images/Bonus_Yell", typeof(Sprite)) as Sprite;
+            else
+                iconResource.GetComponent<Image>().sprite = sprite;
 
             GameObject countResource = selectedResourcesPrefabs[i].transform.Find("countResource").gameObject;
             countResource.GetComponent<TMP_InputField>().text = "1";

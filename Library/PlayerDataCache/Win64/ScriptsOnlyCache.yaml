@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -33,6 +34,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - TimelinePreferences
+    - TimelineProjectSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -79,63 +83,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1484}
     - Class: 114
-      Script: {instanceID: 1572}
+      Script: {instanceID: 1734}
     - Class: 114
-      Script: {instanceID: 1680}
+      Script: {instanceID: 1842}
     - Class: 114
-      Script: {instanceID: 1744}
+      Script: {instanceID: 1906}
     - Class: 114
-      Script: {instanceID: 1806}
+      Script: {instanceID: 1968}
     - Class: 114
-      Script: {instanceID: 1830}
+      Script: {instanceID: 1992}
     - Class: 114
-      Script: {instanceID: 1852}
+      Script: {instanceID: 2014}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 2392}
     - Class: 114
-      Script: {instanceID: 2418}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2656}
+      Script: {instanceID: 2818}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2982}
     - Class: 114
-      Script: {instanceID: 2834}
+      Script: {instanceID: 2996}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 3028}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 3198}
     - Class: 114
-      Script: {instanceID: 3280}
+      Script: {instanceID: 3442}
     - Class: 114
-      Script: {instanceID: 3290}
-    - Class: 114
-      Script: {instanceID: 3374}
-    - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3452}
     - Class: 114
       Script: {instanceID: 3536}
     - Class: 114
-      Script: {instanceID: 3538}
+      Script: {instanceID: 3564}
     - Class: 114
-      Script: {instanceID: 3626}
+      Script: {instanceID: 3698}
     - Class: 114
-      Script: {instanceID: 3702}
+      Script: {instanceID: 3700}
     - Class: 114
       Script: {instanceID: 3788}
     - Class: 114
-      Script: {instanceID: 3930}
+      Script: {instanceID: 3864}
     - Class: 114
-      Script: {instanceID: 4422}
+      Script: {instanceID: 3950}
     - Class: 114
-      Script: {instanceID: 4596}
+      Script: {instanceID: 4092}
     - Class: 114
-      Script: {instanceID: 4618}
+      Script: {instanceID: 4582}
     - Class: 114
-      Script: {instanceID: 4726}
+      Script: {instanceID: 4756}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 4778}
     - Class: 114
-      Script: {instanceID: 5132}
+      Script: {instanceID: 4886}
+    - Class: 114
+      Script: {instanceID: 4912}
+    - Class: 114
+      Script: {instanceID: 5292}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -924,4 +928,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/unity/Prototype/ChestGenerator/ChestGenerator/Build/ChestGenerator.exe
+  playerPath: E:/Maps/GeneratingChests_build/ChestGenerator.exe
