@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - ChestGenerator_Root
     - ClipboardChest_BEHAVIOR
     - GenerateButton_BEHAVIOR
+    - RefreshButton_BEHAVIOR
     - SelectChest_BEHAVIOR
     - SelectedResource_BEHAVIOR
     - ShowButton_BEHAVIOR
@@ -13,7 +14,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -93,53 +93,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1854}
     - Class: 114
-      Script: {instanceID: 2232}
+      Script: {instanceID: 1912}
     - Class: 114
-      Script: {instanceID: 2420}
+      Script: {instanceID: 2234}
     - Class: 114
-      Script: {instanceID: 2658}
+      Script: {instanceID: 2422}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2524}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2662}
     - Class: 114
-      Script: {instanceID: 2868}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3038}
+      Script: {instanceID: 2840}
     - Class: 114
-      Script: {instanceID: 3282}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 3292}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3376}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 3404}
+      Script: {instanceID: 3296}
     - Class: 114
-      Script: {instanceID: 3538}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3540}
+      Script: {instanceID: 3408}
     - Class: 114
-      Script: {instanceID: 3628}
+      Script: {instanceID: 3542}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 3544}
     - Class: 114
-      Script: {instanceID: 3790}
+      Script: {instanceID: 3632}
     - Class: 114
-      Script: {instanceID: 3932}
+      Script: {instanceID: 3708}
     - Class: 114
-      Script: {instanceID: 4422}
+      Script: {instanceID: 3794}
     - Class: 114
-      Script: {instanceID: 4596}
+      Script: {instanceID: 3936}
     - Class: 114
-      Script: {instanceID: 4618}
+      Script: {instanceID: 4426}
     - Class: 114
-      Script: {instanceID: 4726}
+      Script: {instanceID: 4600}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 4622}
     - Class: 114
-      Script: {instanceID: 5132}
+      Script: {instanceID: 4730}
     - Class: 114
-      Script: {instanceID: 31840}
+      Script: {instanceID: 4756}
+    - Class: 114
+      Script: {instanceID: 5136}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -255,13 +257,13 @@ ScriptsOnlyBuild:
     className: WarpTextExample
   - hash:
       serializedVersion: 2
-      Hash: 9b6efa3fe46296f00f61aad37af72179
+      Hash: f2c74b59f98429505e06e485be6e1508
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SelectedResource_BEHAVIOR
   - hash:
       serializedVersion: 2
-      Hash: 27c3142f7af54606dde782976c3c66a7
+      Hash: ec3081cc9da538c329ea6f8f0499a0b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChestGenerator_Root
@@ -277,6 +279,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: SimpleScript
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RefreshButton_BEHAVIOR
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -331,6 +339,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: IKManager2D
+  - hash:
+      serializedVersion: 2
+      Hash: f7209b1089536c89b5ff857c072fe59c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShowButton_BEHAVIOR
   - hash:
       serializedVersion: 2
       Hash: 4f60ff347d4efee4ef8cc7f627735018
@@ -925,13 +939,7 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextEventCheck
-  - hash:
-      serializedVersion: 2
-      Hash: f7209b1089536c89b5ff857c072fe59c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShowButton_BEHAVIOR
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/Maps/GeneratingChests_build/ChestGenerator.exe
+  playerPath: E:/Maps/GeneratingChests 1.1/ChestGenerator.exe

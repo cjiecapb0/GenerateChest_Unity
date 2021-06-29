@@ -75,6 +75,24 @@
     ],
     "ResourcesT2": [
         {
+            "Name": "Энергия",
+            "Id": "energy",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "1",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Монеты",
+            "Id": "money",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "1",
+            "PriceRelativelyWater": "0"
+        },
+        {
             "Name": "Бревно",
             "Id": "wood",
             "Level": "1",
@@ -319,6 +337,24 @@
         }
     ],
     "ResourcesT3": [
+        {
+            "Name": "Энергия",
+            "Id": "energy",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "1",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Монеты",
+            "Id": "money",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "1",
+            "PriceRelativelyWater": "0"
+        },
         {
             "Name": "Дрова",
             "Id": "firewood",
@@ -642,9 +678,54 @@
             "PriceRelativelyEnergy": "0",
             "PriceRelativelyMoney": "20",
             "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Хлопковые нитки",
+            "Id": "cotton_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "68",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Шерстяные нитки",
+            "Id": "wool_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "53",
+            "PriceRelativelyMoney": "48",
+            "PriceRelativelyWater": "3"
+        },
+        {
+            "Name": "Серебрянная руда",
+            "Id": "silver_ore",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "5",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
         }
     ],
     "ResourcesT4": [
+        {
+            "Name": "Энергия",
+            "Id": "energy",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "1",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Монеты",
+            "Id": "money",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "1",
+            "PriceRelativelyWater": "0"
+        },
         {
             "Name": "Дрова",
             "Id": "firewood",
@@ -968,6 +1049,431 @@
             "PriceRelativelyEnergy": "0",
             "PriceRelativelyMoney": "20",
             "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Хлопковые нитки",
+            "Id": "cotton_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "68",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Стекло",
+            "Id": "glass",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "50",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Шерстяные нитки",
+            "Id": "wool_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "53",
+            "PriceRelativelyMoney": "48",
+            "PriceRelativelyWater": "3"
+        },
+        {
+            "Name": "Серебрянная руда",
+            "Id": "silver_ore",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "5",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        }
+    ],
+    "ResourcesT5": [
+        {
+            "Name": "Артефакт",
+            "Id": "artifact",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Энергия",
+            "Id": "energy",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "1",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Монеты",
+            "Id": "money",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "1",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Дрова",
+            "Id": "firewood",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "9",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Бревно",
+            "Id": "wood",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "3",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Клей",
+            "Id": "glue",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "9",
+            "PriceRelativelyMoney": "30",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Сахар",
+            "Id": "sugar",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "9",
+            "PriceRelativelyMoney": "15",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Железная руда",
+            "Id": "iron_ore",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "5",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Вода",
+            "Id": "water",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Ветки",
+            "Id": "brushwood",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "3",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Песочные часы",
+            "Id": "sand_glass",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Брусья",
+            "Id": "timber",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "9",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Доски",
+            "Id": "planking",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "19",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Пшеничная мука",
+            "Id": "wheat_flour",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "5",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Кукурузная мука",
+            "Id": "corn_flour",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "10",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Веревка",
+            "Id": "rope",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "10",
+            "PriceRelativelyMoney": "136",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Фанера",
+            "Id": "plywood",
+            "Level": "4",
+            "Count": "1",
+            "PriceRelativelyEnergy": "93",
+            "PriceRelativelyMoney": "60",
+            "PriceRelativelyWater": "2"
+        },
+        {
+            "Name": "Шпон",
+            "Id": "veneer",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "37",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Лёд",
+            "Id": "ice",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "3"
+        },
+        {
+            "Name": "Песчанник",
+            "Id": "sandstone",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "3",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Железо",
+            "Id": "iron",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "33",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Печенька",
+            "Id": "cookie",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "49",
+            "PriceRelativelyMoney": "71",
+            "PriceRelativelyWater": "4"
+        },
+        {
+            "Name": "Яблоки",
+            "Id": "apple",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "10",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Пшеница",
+            "Id": "wheat",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "1",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Кукуруза",
+            "Id": "corn",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "2",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Сахарный тростник",
+            "Id": "sugarcane",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "3",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Помидор",
+            "Id": "tomatoes",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "8",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Хлопок",
+            "Id": "cotton",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "17",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Яйцо",
+            "Id": "egg",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "4",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Молоко",
+            "Id": "milk",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "8",
+            "PriceRelativelyMoney": "5",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Шерсть",
+            "Id": "wool",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "18",
+            "PriceRelativelyMoney": "16",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Хлеб",
+            "Id": "bread",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "3",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Сливки",
+            "Id": "cream",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "23",
+            "PriceRelativelyMoney": "15",
+            "PriceRelativelyWater": "3"
+        },
+        {
+            "Name": "Шерстяная ткань",
+            "Id": "wool_textile",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "214",
+            "PriceRelativelyMoney": "192",
+            "PriceRelativelyWater": "12"
+        },
+        {
+            "Name": "Хлопковая ткань",
+            "Id": "cotton_textile",
+            "Level": "3",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "272",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Кофейные зерна",
+            "Id": "coffee_beans",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "30",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Картофель",
+            "Id": "potato",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "7",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Подсолнух",
+            "Id": "sunflowers",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "25",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Апельсины",
+            "Id": "orange",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "20",
+            "PriceRelativelyWater": "1"
+        },
+        {
+            "Name": "Хлопковые нитки",
+            "Id": "cotton_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "68",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Стекло",
+            "Id": "glass",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "0",
+            "PriceRelativelyMoney": "50",
+            "PriceRelativelyWater": "0"
+        },
+        {
+            "Name": "Шерстяные нитки",
+            "Id": "wool_threads",
+            "Level": "2",
+            "Count": "1",
+            "PriceRelativelyEnergy": "53",
+            "PriceRelativelyMoney": "48",
+            "PriceRelativelyWater": "3"
+        },
+        {
+            "Name": "Серебрянная руда",
+            "Id": "silver_ore",
+            "Level": "1",
+            "Count": "1",
+            "PriceRelativelyEnergy": "5",
+            "PriceRelativelyMoney": "0",
+            "PriceRelativelyWater": "0"
         }
     ]
 }

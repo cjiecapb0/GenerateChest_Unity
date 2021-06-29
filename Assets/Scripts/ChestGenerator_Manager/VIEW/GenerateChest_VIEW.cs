@@ -18,11 +18,12 @@ public class GenerateChest_VIEW
     private List<GameObject> selectedResourcesPrefabs;
     private List<GameObject> prices;
     private List<GameObject> cells;
+    private List<GameObject> refreshButton;
 
     private readonly RootResources rootResources;
 
     private string clipboardChest;
-    // as TextAsset //"Assets/Resources/data.txt";
+    private string clipboardResources;
 
     public GenerateChest_VIEW(Dictionary<string, List<GameObject>> prefabsList)
     {
@@ -49,11 +50,15 @@ public class GenerateChest_VIEW
         this.cells = prefabsList.ContainsKey("cells")
             ? prefabsList["cells"]
             : null;
+        this.refreshButton = prefabsList.ContainsKey("refreshButton")
+            ? prefabsList["refreshButton"]
+            : null;
 
         TextAsset rootResourcesPath = Resources.Load<TextAsset>("data");
         rootResources = JsonConvert.DeserializeObject<RootResources>(rootResourcesPath.text);
         selestedResources = new List<Resource>();
         clipboardChest = "";
+        clipboardResources = "";
     }
     public void FillFixedResources()
     {
@@ -133,6 +138,78 @@ public class GenerateChest_VIEW
         clipboardChest += ")";
 
         GUIUtility.systemCopyBuffer = clipboardChest;
+    }
+    public void CopyResoursce(GameObject gameObject, GameObject countResource)
+    {
+        clipboardResources = "";
+        GameObject nameResource = gameObject.transform.Find("nameResource").gameObject;
+        string name = nameResource.GetComponent<TextMeshProUGUI>().text;
+
+        GameObject textArea = countResource.transform.Find("Text Area").Find("Text").gameObject;
+        string count = textArea.GetComponent<TextMeshProUGUI>().text;
+
+        foreach (Resource resource in GetSelectedChest())
+        {
+            if (name == resource.Name)
+            {
+                clipboardResources = $"(ResourceId=\"{resource.Id}\",Count={count})";
+            }
+        }
+        GUIUtility.systemCopyBuffer = clipboardResources;
+    }
+    public void RefreshResoursce(GameObject gameObject)
+    {
+        GameObject selectedResourceRefresh = gameObject.transform.parent.gameObject;
+
+        GameObject infoResource = selectedResourceRefresh.transform.Find("infoResource").gameObject;
+
+        GameObject countResource = selectedResourceRefresh.transform.Find("countResource").gameObject;
+
+        GameObject nameResource = infoResource.transform.Find("nameResource").gameObject;
+        string name = nameResource.GetComponent<TextMeshProUGUI>().text;
+
+        GameObject iconResource = infoResource.transform.Find("iconResource").gameObject;
+        Color infoResourceColor = new Color();
+
+        for (int i = 0; i < selestedResources.Count; i++)
+        {
+            if (selestedResources[i].Name == name)
+            {
+                Resource resource = RandomResource();
+
+                for (int j = 0; j < selestedResources.Count; j++)
+                {
+                    if (selestedResources[j].Name == resource.Name)
+                    {
+                        resource = RandomResource();
+                        j = -1;
+                    }
+                }
+
+                if (resource.Level == 1) infoResourceColor = Color.white;
+                if (resource.Level == 2) infoResourceColor = Color.yellow;
+                if (resource.Level == 3) infoResourceColor = Color.green;
+                if (resource.Level == 4) infoResourceColor = Color.red;
+                infoResource.GetComponent<Image>().color = infoResourceColor;
+
+                string path = $"{resource.Id}";
+                Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
+                if (sprite == null)
+                    iconResource.GetComponent<Image>().sprite = Resources.Load("Images/Bonus_Yell", typeof(Sprite)) as Sprite;
+                else
+                    iconResource.GetComponent<Image>().sprite = sprite;
+
+                countResource.GetComponent<TMP_InputField>().text = "1";
+                nameResource.GetComponent<TextMeshProUGUI>().text = resource.Name;
+
+                selestedResources[i] = resource;
+            }
+        }
+    }
+    private Resource RandomResource()
+    {
+        System.Random rand = new System.Random();
+        return GetSelectedChest()[rand.Next(0, GetSelectedChest().Count)];
     }
     public void PastedChest()
     {
@@ -228,6 +305,7 @@ public class GenerateChest_VIEW
                     "T2" => this.rootResources.ResourcesT2,
                     "T3" => this.rootResources.ResourcesT3,
                     "T4" => this.rootResources.ResourcesT4,
+                    "T5" => this.rootResources.ResourcesT5,
                     _ => this.rootResources.ResourcesT1,
                 };
             }
@@ -327,5 +405,6 @@ public class GenerateChest_VIEW
         }
         PrintingResources();
     }
+
 
 }
