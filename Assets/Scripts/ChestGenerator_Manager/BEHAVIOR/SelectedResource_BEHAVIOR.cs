@@ -1,26 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class SelectedResource_BEHAVIOR : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,IPointerClickHandler
 {
     [SerializeField] private GameObject toolTip;
-    [SerializeField] private GameObject countResource;
-    [SerializeField] private GameObject nameResource;
+    [SerializeField] private TMP_InputField countResource;
+    [SerializeField] private TextMeshProUGUI nameResource;
     [SerializeField] private GameObject iconCopy;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ChestGenerator_Manager.CopyResoursce(gameObject, countResource);
+        ChestGenerator_Manager.CopyResoursce(nameResource.text, countResource.text);
         SetActiveTrueIconCopy();
-        Invoke("SetActiveFalseIconCopy", 1f);
+        Invoke(nameof(SetActiveFalseIconCopy), 1f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ChestGenerator_Manager.RenderToolTip(this.gameObject, this.countResource, nameResource, this.toolTip);
+        ChestGenerator_Manager.RenderToolTip(countResource.text, nameResource.text, this.toolTip);
         this.toolTip.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
