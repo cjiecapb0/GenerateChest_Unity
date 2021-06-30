@@ -18,7 +18,6 @@ public class GenerateChest_VIEW
     private List<GameObject> selectedResourcesPrefabs;
     private List<GameObject> prices;
     private List<GameObject> cells;
-    private List<GameObject> refreshButton;
 
     private readonly RootResources rootResources;
 
@@ -49,9 +48,6 @@ public class GenerateChest_VIEW
 
         this.cells = prefabsList.ContainsKey("cells")
             ? prefabsList["cells"]
-            : null;
-        this.refreshButton = prefabsList.ContainsKey("refreshButton")
-            ? prefabsList["refreshButton"]
             : null;
 
         TextAsset rootResourcesPath = Resources.Load<TextAsset>("data");
@@ -139,6 +135,18 @@ public class GenerateChest_VIEW
 
         GUIUtility.systemCopyBuffer = clipboardChest;
     }
+    public void DeleteSelectedResourses(string nameResource)
+    {
+        int index = -1;
+        for (int i = 0; i < selestedResources.Count; i++)
+        {
+            if (nameResource == selestedResources[i].Name)
+                index = i;
+        }
+        if (index == -1) return;
+        selestedResources.RemoveAt(index);
+        PrintingResources();
+    }
     public void CopyResoursce(GameObject gameObject, GameObject countResource)
     {
         clipboardResources = "";
@@ -156,6 +164,71 @@ public class GenerateChest_VIEW
             }
         }
         GUIUtility.systemCopyBuffer = clipboardResources;
+    }
+    public void PastedChest()
+    {
+
+        string pasteText = GUIUtility.systemCopyBuffer;
+        pasteText = pasteText.Replace("(", "{").Replace(")", "}").Replace("=", ":");
+    }
+    public void RenderToolTip(GameObject selectedResource, GameObject countResource, GameObject name, GameObject toolTip)
+    {
+        string nameString = name.GetComponent<TextMeshProUGUI>().text;
+        foreach (Resource resource in selestedResources)
+        {
+            if (nameString == resource.Name)
+            {
+                int count = int.Parse(countResource.GetComponent<TMP_InputField>().text.ToString());
+
+                GameObject priceMoney = toolTip.transform.Find("priceMoney").gameObject;
+                priceMoney.SetActive(false);
+                GameObject priceEnergy = toolTip.transform.Find("priceEnergy").gameObject;
+                priceEnergy.SetActive(false);
+                GameObject priceWater = toolTip.transform.Find("priceWater").gameObject;
+                priceWater.SetActive(false);
+
+
+                if (resource.PriceRelativelyMoney != 0)
+                {
+                    priceMoney.SetActive(true);
+                    GameObject cost = priceMoney.transform.Find("cost").gameObject;
+                    cost.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyMoney).ToString();
+                }
+                if (resource.PriceRelativelyEnergy != 0)
+                {
+                    priceEnergy.SetActive(true);
+                    GameObject costP = priceEnergy.transform.Find("cost").gameObject;
+                    costP.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyEnergy).ToString();
+                }
+                if (resource.PriceRelativelyWater != 0)
+                {
+                    priceWater.SetActive(true);
+                    GameObject costS = priceWater.transform.Find("cost").gameObject;
+                    costS.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyWater).ToString();
+                }
+            }
+        }
+    }
+    public void CalculatingCostCheast()
+    {
+        int priceMoneyInt = 0;
+        int priceEnergyInt = 0;
+        int priceWaterInt = 0;
+        for (int i = 0; i < selestedResources.Count; i++)
+        {
+            GameObject countResource = selectedResourcesPrefabs[i].transform.Find("countResource").gameObject;
+            int resourceCount = int.Parse(countResource.GetComponent<TMP_InputField>().text);
+            priceMoneyInt += (selestedResources[i].PriceRelativelyMoney * resourceCount);
+            priceEnergyInt += (selestedResources[i].PriceRelativelyEnergy * resourceCount);
+            priceWaterInt += (selestedResources[i].PriceRelativelyWater * resourceCount);
+        }
+        prices[0].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceMoneyInt.ToString();
+        prices[1].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceEnergyInt.ToString();
+        prices[2].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceWaterInt.ToString();
+        foreach (GameObject price in prices)
+        {
+            price.SetActive(true);
+        }
     }
     public void RefreshResoursce(GameObject gameObject)
     {
@@ -206,76 +279,19 @@ public class GenerateChest_VIEW
             }
         }
     }
+
+    public void SetCountResource(string name, int count)
+    {
+        foreach (Resource resource in selestedResources)
+        {
+            if (resource.Name == name)
+                resource.Count = count;
+        }
+    }
     private Resource RandomResource()
     {
         System.Random rand = new System.Random();
         return GetSelectedChest()[rand.Next(0, GetSelectedChest().Count)];
-    }
-    public void PastedChest()
-    {
-
-        string pasteText = GUIUtility.systemCopyBuffer;
-        pasteText = pasteText.Replace("(", "{").Replace(")", "}").Replace("=", ":");
-    }
-    public void RenderToolTip(GameObject selectedResource, GameObject countResource, GameObject name, GameObject toolTip)
-    {
-        string nameString = name.GetComponent<TextMeshProUGUI>().text;
-        foreach (Resource resource in selestedResources)
-        {
-            if (nameString == resource.Name)
-            {
-                int count = int.Parse(countResource.GetComponent<TMP_InputField>().text.ToString());
-
-                GameObject priceMoney = toolTip.transform.Find("priceMoney").gameObject;
-                priceMoney.SetActive(false);
-                GameObject priceEnergy = toolTip.transform.Find("priceEnergy").gameObject;
-                priceEnergy.SetActive(false);
-                GameObject priceWater = toolTip.transform.Find("priceWater").gameObject;
-                priceWater.SetActive(false);
-
-
-                if (resource.PriceRelativelyMoney != 0)
-                {
-                    priceMoney.SetActive(true);
-                    GameObject cost = priceMoney.transform.Find("cost").gameObject;
-                    cost.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyMoney).ToString();
-                }
-                if (resource.PriceRelativelyEnergy != 0)
-                {
-                    priceEnergy.SetActive(true);
-                    GameObject costP = priceEnergy.transform.Find("cost").gameObject;
-                    costP.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyEnergy).ToString();
-                }
-                if (resource.PriceRelativelyWater != 0)
-                {
-                    priceWater.SetActive(true);
-                    GameObject costS = priceWater.transform.Find("cost").gameObject;
-                    costS.GetComponent<TextMeshProUGUI>().text = (count * resource.PriceRelativelyWater).ToString();
-                }
-            }
-        }
-    }
-
-    public void CalculatingCostCheast()
-    {
-        int priceMoneyInt = 0;
-        int priceEnergyInt = 0;
-        int priceWaterInt = 0;
-        for (int i = 0; i < selestedResources.Count; i++)
-        {
-            GameObject countResource = selectedResourcesPrefabs[i].transform.Find("countResource").gameObject;
-            int resourceCount = int.Parse(countResource.GetComponent<TMP_InputField>().text);
-            priceMoneyInt += (selestedResources[i].PriceRelativelyMoney * resourceCount);
-            priceEnergyInt += (selestedResources[i].PriceRelativelyEnergy * resourceCount);
-            priceWaterInt += (selestedResources[i].PriceRelativelyWater * resourceCount);
-        }
-        prices[0].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceMoneyInt.ToString();
-        prices[1].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceEnergyInt.ToString();
-        prices[2].transform.Find("cost").gameObject.GetComponent<TextMeshProUGUI>().text = priceWaterInt.ToString();
-        foreach (GameObject price in prices)
-        {
-            price.SetActive(true);
-        }
     }
     private int GetCountResourcesInChest()
     {
@@ -341,6 +357,10 @@ public class GenerateChest_VIEW
         {
             this.selestedResources.Add(GetSelectedChest()[selectedNumberResources[i]]);
         }
+        foreach (Resource resource in selestedResources)
+        {
+            resource.Count = 1;
+        }
     }
     private void PrintingResources()
     {
@@ -373,7 +393,7 @@ public class GenerateChest_VIEW
                 iconResource.GetComponent<Image>().sprite = sprite;
 
             GameObject countResource = selectedResourcesPrefabs[i].transform.Find("countResource").gameObject;
-            countResource.GetComponent<TMP_InputField>().text = "1";
+            countResource.GetComponent<TMP_InputField>().text = selestedResources[i].Count.ToString();
 
         }
     }

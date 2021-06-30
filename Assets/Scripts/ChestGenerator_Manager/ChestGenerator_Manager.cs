@@ -53,6 +53,14 @@ public static class ChestGenerator_Manager
     {
         VIEW.generateChest_VIEW.RefreshResoursce(gameObject);
     }
+    public static void DeleteSelectedResourses(string nameResource)
+    {
+        VIEW.generateChest_VIEW.DeleteSelectedResourses(nameResource);
+    }
+    public static void SetCountResource(string name, int count)
+    {
+        VIEW.generateChest_VIEW.SetCountResource(name, count);
+    }
 }
 
 //public static void GenerateResources(StackPanel checkBox, ComboBox comboBox, TextBlock text, TextBlock textJ, List<Resource> rootResources)
