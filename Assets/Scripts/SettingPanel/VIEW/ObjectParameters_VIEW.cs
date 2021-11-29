@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectParameters_VIEW : MonoBehaviour
 {
@@ -65,14 +66,50 @@ public class ObjectParameters_VIEW : MonoBehaviour
         if (objectTypeListPath.text != "")
             objectTypeList = JsonConvert.DeserializeObject<ObjectTypeList>(objectTypeListPath.text);
         else
+        {
             objectTypeList = new ObjectTypeList();
-        WriteObject();
+            WriteObject();
+        }
     }
 
     public void StartRender()
     {
+        //Characters
+        if (objectTypeList.Characters == null) return;
+        FillCard(objectTypeList.Characters);
+        //Statics
+        if (objectTypeList.Statics == null) return;
+        FillCard(objectTypeList.Statics);
+        //Restore
+        if (objectTypeList.Restores == null) return;
+        FillCard(objectTypeList.Restores);
+        //Plants
+        if (objectTypeList.Plants == null) return;
+        FillCard(objectTypeList.Plants);
+        //RentHouses
+        if (objectTypeList.RentHouses == null) return;
+        FillCard(objectTypeList.RentHouses);
+        //Factories
+        if (objectTypeList.Factores == null) return;
+        FillCard(objectTypeList.Factores);
+        //Gates
+        if (objectTypeList.Gates == null) return;
+        FillCard(objectTypeList.Gates);
+        //Treasures
+        if (objectTypeList.Treasures == null) return;
+        FillCard(objectTypeList.Treasures);
+        //Garbages
+        if (objectTypeList.Garbages == null) return;
+        FillCard(objectTypeList.Garbages);
+        //ResourcesGame
         if (objectTypeList.ResourcesGame == null) return;
         FillCard(objectTypeList.ResourcesGame);
+        //Decorations
+        if (objectTypeList.Decorations == null) return;
+        FillCard(objectTypeList.Decorations);
+        //Achievement
+        if (objectTypeList.Achievements == null) return;
+        FillCard(objectTypeList.Achievements);
     }
 
     public void AddCardInDeck(ClassObject classObject)
@@ -81,7 +118,6 @@ public class ObjectParameters_VIEW : MonoBehaviour
 
         WriteObject();
     }
-
     private void WriteObject()
     {
         File.WriteAllText(@"Assets/Resources/Objects.json", JsonConvert.SerializeObject(objectTypeList));
@@ -92,7 +128,6 @@ public class ObjectParameters_VIEW : MonoBehaviour
             serializer.Serialize(file, objectTypeList);
         }
     }
-
     private GameObject createCard()
     {
         string formFillingPrefabPath = "Prefabs/FormFilling";
@@ -174,6 +209,358 @@ public class ObjectParameters_VIEW : MonoBehaviour
                 break;
         }
     }
+
+    private void FillCard(List<Character> objects)
+    {
+        foreach (Character resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentCharacters.transform, false);
+        }
+        this.contentCharacters.transform.Find("AddForm").SetAsLastSibling();
+        this.contentCharacters.SetActive(true);
+    }
+    private void FillCard(List<Static> objects)
+    {
+        foreach (Character resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentStatics.transform, false);
+        }
+        this.contentStatics.transform.Find("AddForm").SetAsLastSibling();
+        this.contentStatics.SetActive(true);
+    }
+    private void FillCard(List<Restore> objects)
+    {
+        foreach (Restore resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentRestores.transform, false);
+        }
+        this.contentRestores.transform.Find("AddForm").SetAsLastSibling();
+        this.contentRestores.SetActive(true);
+    }
+    private void FillCard(List<Plant> objects)
+    {
+        foreach (Plant resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentPlants.transform, false);
+        }
+        this.contentPlants.transform.Find("AddForm").SetAsLastSibling();
+        this.contentPlants.SetActive(true);
+    }
+    private void FillCard(List<RentHouse> objects)
+    {
+        foreach (RentHouse resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentRentHouses.transform, false);
+        }
+        this.contentRentHouses.transform.Find("AddForm").SetAsLastSibling();
+        this.contentRentHouses.SetActive(true);
+    }
+    private void FillCard(List<Factory> objects)
+    {
+        foreach (Factory resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentFactories.transform, false);
+        }
+        this.contentFactories.transform.Find("AddForm").SetAsLastSibling();
+        this.contentFactories.SetActive(true);
+    }
+    private void FillCard(List<Gate> objects)
+    {
+        foreach (Gate resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentGates.transform, false);
+        }
+        this.contentGates.transform.Find("AddForm").SetAsLastSibling();
+        this.contentGates.SetActive(true);
+    }
+    private void FillCard(List<Treasure> objects)
+    {
+        foreach (Treasure resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentTreasures.transform, false);
+        }
+        this.contentTreasures.transform.Find("AddForm").SetAsLastSibling();
+        this.contentTreasures.SetActive(true);
+    }
+    private void FillCard(List<Garbage> objects)
+    {
+        foreach (Garbage resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentGarbages.transform, false);
+        }
+        this.contentGarbages.transform.Find("AddForm").SetAsLastSibling();
+        this.contentGarbages.SetActive(true);
+    }
     private void FillCard(List<ResourcesGame> objects)
     {
         foreach (ResourcesGame resource in objects)
@@ -197,6 +584,69 @@ public class ObjectParameters_VIEW : MonoBehaviour
         }
         this.contentResources.transform.Find("AddForm").SetAsLastSibling();
         this.contentResources.SetActive(true);
+    }
+    private void FillCard(List<Decoration> objects)
+    {
+        foreach (Decoration resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //BuildingClass
+            TMP_Dropdown dropdown = template.transform.Find("DropdownClass").GetComponent<TMP_Dropdown>();
+            dropdown.value = 0;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+            //BlockMove
+            Toggle toggleBlockMove = template.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+            toggleBlockMove.isOn = true;
+            //BlockFog
+            Toggle toggleBlockFog = template.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+            toggleBlockFog.isOn = false;
+            //FogHasInfluence
+            Toggle toggleFogHasInfluence = template.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+            toggleFogHasInfluence.isOn = true;
+            //BlockFog
+            Toggle toggleMoving = template.transform.Find("ToggleMoving").GetComponent<Toggle>();
+            toggleMoving.isOn = false;
+
+            template.transform.SetParent(this.contentDecorations.transform, false);
+        }
+        this.contentDecorations.transform.Find("AddForm").SetAsLastSibling();
+        this.contentDecorations.SetActive(true);
+    }
+    private void FillCard(List<Achievement> objects)
+    {
+        foreach (Achievement resource in objects)
+        {
+            GameObject template = createCard();
+
+            //BuildingId
+            TMP_InputField inputBuildingId = template.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+            inputBuildingId.text = resource.BuildingId;
+            //Name
+            TMP_InputField inputName = template.transform.Find("InputName").GetComponent<TMP_InputField>();
+            inputName.text = resource.Name;
+            //ShortObjectDescription
+            TMP_InputField inputDescription = template.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+            inputDescription.text = resource.ShortObjectDescription;
+            //Icon
+            TMP_InputField inputIcon = template.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+            inputIcon.text = resource.Icon;
+
+            template.transform.SetParent(this.contentAchievementSettings.transform, false);
+        }
+        this.contentAchievementSettings.transform.Find("AddForm").SetAsLastSibling();
+        this.contentAchievementSettings.SetActive(true);
     }
 
 }

@@ -6,6 +6,7 @@ public class ObjectTypeList
     public List<Achievement> Achievements { get; set; }
     public List<Character> Characters { get; set; }
     public List<Static> Statics { get; set; }
+    public List<Restore> Restores { get; set; }
     public List<Plant> Plants { get; set; }
     public List<RentHouse> RentHouses { get; set; }
     public List<Factory> Factores { get; set; }

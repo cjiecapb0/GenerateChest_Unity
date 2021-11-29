@@ -1,4 +1,4 @@
-public enum  ClassObject
+public enum ClassObject
 {
     Character,
     Static,

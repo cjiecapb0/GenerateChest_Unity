@@ -15,6 +15,7 @@ public class Character : ResourcesGame
     public bool bIsMoving { get; set; }
 }
 public class Static : Character { }
+public class Restore : Character { }
 public class Plant : Character { }
 public class RentHouse : Character { }
 public class Factory : Character { }
