@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -649,4 +650,78 @@ public class ObjectParameters_VIEW : MonoBehaviour
         this.contentAchievementSettings.SetActive(true);
     }
 
+    private void RecordingCard(GameObject card, ClassObject classObject)
+    {
+        switch (classObject)
+        {
+            case ClassObject.Character:
+
+                Character character = new Character();
+
+                //BuildingId
+                RecordingBuildingId(card, character);
+                //Name
+                RecordingName(card, character);
+                //ShortObjectDescription
+                RecordingDescription(card, character);
+                //BuildingClass
+                character.BuildingClass = CONSTANT.buildingClassCharacters;
+                //Icon
+                TMP_InputField inputIcon = card.transform.Find("InputIcon").GetComponent<TMP_InputField>();
+                character.Icon = inputIcon.text;
+                //BlockMove
+                Toggle toggleBlockMove = card.transform.Find("ToggleBlockMove").GetComponent<Toggle>();
+                character.bIsBlockMove =  toggleBlockMove.isOn;
+                //BlockFog
+                Toggle toggleBlockFog = card.transform.Find("ToggleBlockFog").GetComponent<Toggle>();
+                character.bIsBlockFog = toggleBlockFog.isOn;
+                //FogHasInfluence
+                Toggle toggleFogHasInfluence = card.transform.Find("ToggleFogHasInfluence").GetComponent<Toggle>();
+                character.bIsFogHasInfluence = toggleFogHasInfluence.isOn;
+                //BlockFog
+                Toggle toggleMoving = card.transform.Find("ToggleMoving").GetComponent<Toggle>();
+                toggleMoving.isOn = false;
+                break;
+            case ClassObject.Static:
+                break;
+            case ClassObject.Restore:
+                break;
+            case ClassObject.Plant:
+                break;
+            case ClassObject.RentHouse:
+                break;
+            case ClassObject.Factory:
+                break;
+            case ClassObject.Gate:
+                break;
+            case ClassObject.Treasure:
+                break;
+            case ClassObject.Garbage:
+                break;
+            case ClassObject.Resource:
+                break;
+            case ClassObject.Decoration:
+                break;
+            case ClassObject.Achievement:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void RecordingBuildingId(GameObject card, ResourcesGame classObject)
+    {
+        TMP_InputField inputBuildingId = card.transform.Find("InputBuildingId").GetComponent<TMP_InputField>();
+        classObject.BuildingId = inputBuildingId.text;
+    }
+    public void RecordingName(GameObject card, ResourcesGame classObject)
+    {
+        TMP_InputField inputName = card.transform.Find("InputName").GetComponent<TMP_InputField>();
+        classObject.Name = inputName.text;
+    }
+    public void RecordingDescription(GameObject card, ResourcesGame classObject)
+    {
+        TMP_InputField inputDescription = card.transform.Find("InputDescription").GetComponent<TMP_InputField>();
+        classObject.ShortObjectDescription = inputDescription.text;
+    }
 }
